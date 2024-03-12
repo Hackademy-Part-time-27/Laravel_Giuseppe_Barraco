@@ -6,14 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <nav style="display: flex; flex: warp; justify-content: space-between;">
-        <div style="display: flex; flex: warp;">
+    <nav style="display: flex; flex: wrap; justify-content: space-between;">
+        <div style="display: flex; flex: wrap;">
             <a href="http://127.0.0.1:8000/">Homepage</a>
         </div>
-        <div style="display: flex; flex: warp;">
+        <div style="display: flex; flex: wrap;">
             <a href="http://127.0.0.1:8000/contatti">Contatti</a>
         </div>
-        <div  style="display: flex; flex: warp;">
+        <div  style="display: flex; flex: wrap;">
             <a href="http://127.0.0.1:8000/chi-sono">Chi Sono</a>
         </div>
     </nav>
