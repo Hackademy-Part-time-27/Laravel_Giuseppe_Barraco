@@ -8,13 +8,13 @@
 <body>
     <nav style="display: flex; flex: wrap; justify-content: space-between;">
         <div style="display: flex; flex: wrap;">
-                <a href="http://127.0.0.1:8000/">Homepage</a>
+                <a href='/'>Homepage</a>
         </div>
         <div style="display: flex; flex: wrap;">
-                <a href="http://127.0.0.1:8000/contatti">Contatti</a>
+                <a href='/contatti'>Contatti</a>
         </div>
         <div  style="display: flex; flex: wrap;">
-                <a href="http://127.0.0.1:8000/chi-sono">Chi Sono</a>
+                <a href='/chi-sono'>Chi Sono</a>
         </div>
     </nav>
     <div style="display: grid; justify-content: center">
