@@ -10,10 +10,10 @@
             <div style="display: flex; flex: wrap;">
                 <a href="http://127.0.0.1:8000/">Homepage</a>
             </div>
-            <div style="display: flex; flex:r ;">
+            <div style="display: flex; flex: wrap ;">
                 <a href="http://127.0.0.1:8000/contatti">Contatti</a>
             </div>
-            <div  style="display: flex; flex:r ;">
+            <div  style="display: flex; flex: wrap ;">
                 <a href="http://127.0.0.1:8000/chi-sono">Chi Sono</a>
             </div>
         </nav>
