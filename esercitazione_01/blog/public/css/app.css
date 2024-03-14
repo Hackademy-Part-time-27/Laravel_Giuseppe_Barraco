@@ -1,0 +1,28 @@
+.navbar {
+    display: flex;
+    flex: wrap;
+    justify-content: space-between;
+}
+
+.titolo {
+    display: flex; 
+    justify-content: center;
+}
+
+.articoli {
+    display: flex;
+    justify-content: center;
+}
+.categoria {
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
+
+.descrizione {
+    display: flex;
+    font-size: large;
+    width: 50%;
+    justify-content: center;
+    margin-left: 25%;
+}
