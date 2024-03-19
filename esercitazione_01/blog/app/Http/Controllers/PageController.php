@@ -38,7 +38,6 @@ class PageController extends Controller
         $article = $this->articles[$article];
 
         if(! $article['visible']) {
-            // se l'articolo non è visibile, verrà eseguito il codice seguente
             abort(404);
         }
 
