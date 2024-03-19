@@ -4,6 +4,4 @@
     </div>
 
     <div style="display: flex; justify-content: center;">{{ $description }}</div>
-
-</body>
-</html>
+</x-layout>
