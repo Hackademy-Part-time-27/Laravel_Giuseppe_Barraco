@@ -14,6 +14,8 @@ Route::get('/chi-sono', [PageController::class, 'chi_sono'])->name('chi-sono');
 
 Route::get('/articoli', [PageController::class, 'articles'])->name('articoli');
 
-Route::get('/articoli/create', [ArticleController::class, 'create'])->name('articles.create');
-
 Route::get('/articolo/{article}',[PageController::class, 'article'])->name('article');
+
+Route::get('/account/articles', [ArticleController::class, 'index'])->name('articles.index');
+Route::get('/account/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+Route::post('/account/articles/store', [ArticleController::class, 'store'])->name('articles.store');
