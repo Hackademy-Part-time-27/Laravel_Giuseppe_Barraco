@@ -38,18 +38,33 @@
           </li>
         </ul>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="{{ route('articles.index') }}">Gestione Articoli</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-        </ul>
+        @auth
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ auth()->user()->email }}
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="{{ route('account.index') }}">Gestione Account</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{{ route('articles.index') }}">Gestione Articoli</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <form action="/logout" method="POST">
+                    @csrf
+                    <button type="submit" class="dropdown-item">Esci</button>
+                  </form>
+                </li>
+              </ul>
+          </li>
+        @else
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Registrati</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Accedi</a>
+          </li>
+        @endauth
+      </ul>
       </div>
     </div>
   </nav>

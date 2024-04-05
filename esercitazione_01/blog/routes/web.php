@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PageController;
@@ -16,6 +17,14 @@ Route::get('/articoli', [PageController::class, 'articles'])->name('articoli');
 
 Route::get('/articolo/{article}',[PageController::class, 'article'])->name('article');
 
-Route::get('/account/articles', [ArticleController::class, 'index'])->name('articles.index');
-Route::get('/account/articles/create', [ArticleController::class, 'create'])->name('articles.create');
-Route::post('/account/articles/store', [ArticleController::class, 'store'])->name('articles.store');
+// Route::get('/account', [AccountController::class, 'index'])->name('account.index');
+
+Route::prefix('account')->middleware('auth')->group(function () {
+
+    Route::get('/', [AccountController::class, 'index'])->name('account.index');
+
+    Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+    Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+    Route::post('/articles/store', [ArticleController::class, 'store'])->name('articles.store');
+
+});
