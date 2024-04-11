@@ -7,6 +7,7 @@ use App\Http\Requests\StoreArticleRequest;
 use Illuminate\Http\Request;
 
 use App\Models\Article;
+use App\Models\Category;
 
 class ArticleController extends Controller
 {
@@ -15,7 +16,7 @@ class ArticleController extends Controller
     }
 
     public function create() {
-        return view('articles.create');
+        return view('articles.create', ['categories' => Category::all()]);
     }
 
     public function store(StoreArticleRequest $request) {
@@ -39,4 +40,30 @@ class ArticleController extends Controller
 
         return redirect()->route('articles.index')->with(['success' => 'Articolo creato correttamente!']);
     }
+
+    public function edit(Article $article)
+    {
+        return view('articles.edit', ['article' => $article, 'categories' => Category::all()]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(StoreArticleRequest $request, Article $article)
+    {
+        $article->update($request->all());
+
+        return redirect()->back()->with(['success' => 'Articolo modificato correttamente.']);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Article $article)
+    {
+        $article->delete();
+
+        return redirect()->route('articles.index')->with(['success' => 'Articolo cancellato correttamente.']);
+    }
 }
+
