@@ -3,21 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Article;
 
 class PageController extends Controller
 {
-    public $articles;
-
-    public function __construct()
-    {
-        $this->articles = [
-            ['title' => 'Ultime Novità da Sony', 'category' => '...', 'description' => '.....', 'visible' => true],
-            ['title' => 'Migliori RPG dell\'anno', 'category' => '...', 'description' => '.....', 'visible' => true]
-        ];
-    }
-
+   
     public function welcome() {
         $title = config('app.name');
+        $articles = Article::orderBy('created_at', 'DESC')->take(10)->get();
         return view('welcome', compact('title'));
     }
 
@@ -31,7 +24,8 @@ class PageController extends Controller
 
     public function articles() {
         //dd($this->articles);
-        return view('pages.articles', ['articles' => $this->articles]);
+        $articles = Article::where('visible', true)->get();
+        return view('pages.articles', ['articles' => $articles]);
     }
 
     public  function article($article) {
