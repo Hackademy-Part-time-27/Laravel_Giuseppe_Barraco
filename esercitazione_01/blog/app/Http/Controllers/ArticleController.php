@@ -22,6 +22,8 @@ class ArticleController extends Controller
     public function store(StoreArticleRequest $request) {
         $article = Article::create($request->all());
 
+        $article->categories()->attach($request->categories);
+
         if($request->hasFile('image') && $request->file('image')->isValid()) {
             
             $extension = $request->file('image')->extension();
@@ -53,6 +55,9 @@ class ArticleController extends Controller
     {
         $article->update($request->all());
 
+        $article->categories()->detach();
+        $article->categories()->attach($request->categories);
+
         return redirect()->back()->with(['success' => 'Articolo modificato correttamente.']);
     }
 
@@ -61,6 +66,8 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        $article->categories()->detach();
+
         $article->delete();
 
         return redirect()->route('articles.index')->with(['success' => 'Articolo cancellato correttamente.']);

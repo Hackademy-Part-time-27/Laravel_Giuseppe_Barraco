@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->unsignedBigInteger('category_id')->after('title')->nullable();
-            $table ->dropColumn('category');
+        Schema::create('article_category', function (Blueprint $table) {
+            $table->primary(['article_id', 'category_id']);
 
+            $table->unsignedBigInteger('article_id');
+            $table->unsignedBigInteger('category_id');
+
+            $table->foreign('article_id')->references('id')->on('articles');
             $table->foreign('category_id')->references('id')->on('categories');
         });
     }
@@ -24,9 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('category_id');
-            $table->string('category', 50)->after('title')->nullable();
-        });
+        Schema::dropIfExists('article_category');
     }
 };
