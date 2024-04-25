@@ -72,5 +72,10 @@ class ArticleController extends Controller
 
         return redirect()->route('articles.index')->with(['success' => 'Articolo cancellato correttamente.']);
     }
+
+    public function search()
+    {
+        return view('articles.search');
+    }
 }
 

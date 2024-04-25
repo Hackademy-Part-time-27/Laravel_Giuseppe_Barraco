@@ -35,7 +35,13 @@
           </li>
           <li class="nav-item">
           <a class="nav-link" href="{{ route('anime.genres') }}">Anime</a>
-        </li>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{{ route('users.search') }}">Ricerca Utenti</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{{ route('articles.search') }}">Ricerca Articoli</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('contatti') }}">Contatti</a>
           </li>

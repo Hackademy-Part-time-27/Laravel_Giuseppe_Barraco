@@ -16,5 +16,12 @@ class Article extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    
+    public static function search($search)
+    {
+        if($search == '') {
+            return [];
+        }
+
+        return self::where('title', 'LIKE', "%$search%")->get();          
+    }
 }
