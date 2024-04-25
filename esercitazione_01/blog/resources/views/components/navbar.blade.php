@@ -34,6 +34,9 @@
             <a class="nav-link" href="{{ route('chi-sono') }}">Chi Sono</a>
           </li>
           <li class="nav-item">
+          <a class="nav-link" href="{{ route('anime.genres') }}">Anime</a>
+        </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ route('contatti') }}">Contatti</a>
           </li>
         </ul>
